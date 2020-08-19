@@ -29,7 +29,6 @@ void Insert(int data, int position)
         new->data = data;
         new->next = head;
         head = new;
-        return;
     }
     else {
         new->data = data;
