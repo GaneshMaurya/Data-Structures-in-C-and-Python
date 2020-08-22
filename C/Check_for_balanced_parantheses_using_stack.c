@@ -1,16 +1,16 @@
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
+#include <stdbool.h>
 
 #define MAX_SIZE 101
 
 char stack[MAX_SIZE];
 int top = -1;
 
-void Push(char c)
+void Push(char c) 
 {
-    if (top >= MAX_SIZE)
-    {
+    if (top > MAX_SIZE) {
+        printf("Overflow.");
         return;
     }
     ++top;
@@ -19,42 +19,73 @@ void Push(char c)
 
 void Pop()
 {
-    if (top >= 0) {
-        top--;
+    if (top <= -1) {
+        printf("Underflow.");
+        return;
+    }
+    top--;
+}
+
+bool arePair(char a, char b)
+{
+    if (a == '(' && b == ')') {
+        return true;
+    }
+    else if (a == '[' && b == ']') {
+        return true;
+    }
+    else if (a == '{' && b == '}') {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
-int main()
+bool areBalanced(char c[])
 {
-    char c[40];
+    for (int i=0; i<strlen(c); i++)
+    {
+        if (c[i] == '(' || c[i] == '[' || c[i] == '{')
+        {
+            Push(c[i]);
+        }
+        else if (c[i] == ')' || c[i] == ']' || c[i] == '}')
+        {
+            if (top == -1 || !(arePair(stack[top], c[i])))
+            {
+                return false;
+            }
+            else 
+            {
+                Pop();
+            }
+        }    
+    }
+
+    if (top == -1) 
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+int main() 
+{
+    char c[50];
     printf("Enter the expression : ");
     gets(c);
 
-    for (int i=0; i<strlen(c); i++) {
-        if (c[i] == '(' || c[i] == '[' || c[i] == '{') {
-            Push(c[i]);
-        }
-        if (c[i] == ')' || c[i] == ']' || c[i] == '}') {
-            if (stack[top] == '(' && c[i] == ')')
-            {
-                Pop();
-            }
-            else if (stack[top] == '[' && c[i] == ']')
-            {
-                Pop();
-            }
-            else if (stack[top] == '{' && c[i] == '}')
-            {
-                Pop();
-            }
-        }
+    if (areBalanced(c))
+    {
+        printf("Balanced Equation.");
     }
-
-    if (top == -1) {
-        printf("Balanced equation.");
-    }
-    else {
-        printf("Unbalanced equation.");
+    else 
+    {
+        printf("Unbalanced Equation.");
     }
     
     return 0;
