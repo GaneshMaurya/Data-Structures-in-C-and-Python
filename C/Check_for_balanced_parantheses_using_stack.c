@@ -9,13 +9,19 @@ int top = -1;
 
 void Push(char c)
 {
+    if (top >= MAX_SIZE)
+    {
+        return;
+    }
     ++top;
     stack[top] = c;
 }
 
 void Pop()
 {
-    top--;
+    if (top >= 0) {
+        top--;
+    }
 }
 
 int main()
@@ -29,7 +35,18 @@ int main()
             Push(c[i]);
         }
         if (c[i] == ')' || c[i] == ']' || c[i] == '}') {
-            Pop();
+            if (stack[top] == '(' && c[i] == ')')
+            {
+                Pop();
+            }
+            else if (stack[top] == '[' && c[i] == ']')
+            {
+                Pop();
+            }
+            else if (stack[top] == '{' && c[i] == '}')
+            {
+                Pop();
+            }
         }
     }
 
