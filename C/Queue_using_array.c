@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdbool.h>
+
+#define MAX_SIZE 10
+
+int queue[MAX_SIZE];
+int front = -1;
+int rear = -1;
+
+bool isEmpty(int queue[])
+{
+    if (front == -1 && rear == -1)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+bool isFull(int queue[])
+{
+    if (rear > MAX_SIZE)
+    {
+        return true;
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+void Enqueue(int x)
+{
+    if (isFull(queue))
+    {
+        printf("Queue is full.");
+    }
+    else if (isEmpty(queue))
+    {
+        front++;
+        rear++;
+        queue[rear] = x;
+    }
+    else 
+    {
+        rear++;
+        queue[rear] = x;
+    }
+}
+
+void Dequeue(int queue[])
+{
+    if (isEmpty(queue))
+    {
+        printf("Cannot perform dequeue on an empty queue.");
+    }
+    else if (front == rear) 
+    {
+        front = -1;
+        rear = -1;
+    }
+    else 
+    {
+        front++;
+    }
+}
+
+int main()
+{
+    Enqueue(1);
+    Enqueue(2);
+    Enqueue(3);
+    Enqueue(4);
+    Enqueue(5);
+    Dequeue(queue);
+
+    return 0;
+}
