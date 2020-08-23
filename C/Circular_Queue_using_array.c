@@ -22,7 +22,7 @@ bool isEmpty(int queue[])
 
 bool isFull(int queue[])
 {
-    if (rear > MAX_SIZE)
+    if (((rear+1)%MAX_SIZE) == front)
     {
         return true;
     }
@@ -46,7 +46,7 @@ void Enqueue(int x)
     }
     else 
     {
-        rear++;
+        rear = (rear+1)%MAX_SIZE;
         queue[rear] = x;
     }
 }
@@ -64,7 +64,7 @@ void Dequeue()
     }
     else 
     {
-        front++;
+        front = (front+1)%MAX_SIZE;
     }
 }
 

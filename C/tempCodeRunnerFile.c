@@ -1,2 +1,1 @@
-printf("The Reverse ");
-    // Reverse_Print(head);
+printf("%d", queue[front]);
