@@ -59,7 +59,12 @@ bool Search(struct node * root, int data)
 
 int FindMin(struct node * root)
 {
-    if (root->left == NULL)
+    if (root == NULL)
+    {
+        printf("Error : Tree is empty");
+        return -1;
+    }
+    else if (root->left == NULL)
     {
         return root->data;
     }
@@ -71,7 +76,12 @@ int FindMin(struct node * root)
 
 int FindMax(struct node * root)
 {
-    if (root->right == NULL)
+    if (root == NULL)
+    {
+        printf("Error : Tree is empty");
+        return -1;
+    }
+    else if (root->right == NULL)
     {
         return root->data;
     }
