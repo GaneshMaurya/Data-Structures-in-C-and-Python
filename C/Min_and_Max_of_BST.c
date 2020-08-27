@@ -61,7 +61,7 @@ int FindMin(struct node * root)
 {
     if (root == NULL)
     {
-        printf("Error : Tree is empty");
+        printf("Error : Tree is empty.\n");
         return -1;
     }
     else if (root->left == NULL)
@@ -78,7 +78,7 @@ int FindMax(struct node * root)
 {
     if (root == NULL)
     {
-        printf("Error : Tree is empty");
+        printf("Error : Tree is empty.\n");
         return -1;
     }
     else if (root->right == NULL)
