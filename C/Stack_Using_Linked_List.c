@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
+#include <stdlib.h>
 
 struct node 
 {
@@ -30,5 +31,11 @@ void Pop()
 
 int main()
 {
+    Push(995);
+    Push(86);
+    Push(300);
+
+    Pop();
+
     return 0;
 }
