@@ -22,7 +22,7 @@ int main()
 
     for (int i=0; i<n; i++)
     {
-        if (arr[i] > 0)
+        if (arr[i] > pivot)
         {
             swap(&arr[i], &arr[j]);
             j++;
