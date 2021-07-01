@@ -33,7 +33,77 @@ void splitInHalf(struct node * head, struct node * head1, struct node * head2)
     slow->next = head;
 }
 
+void insertToEmpty(int data)
+{
+    struct node * new = (struct node *)malloc(sizeof(struct node *));
+    
+    new->data = data;
+    new->next = new;
+    struct node * head = new;
+}
 
+void insertBegin(struct node * head, int data)
+{
+    if (head == NULL)
+    {
+        insertToEmpty(data);
+    }
+    
+    struct node * new = (struct node *)malloc(sizeof(struct node *));
+    new->data = data;
+    new->next = head;
+
+    while (head->next != head)
+    {
+        head = head->next;
+    } 
+
+    head->next = new;
+    head = new;
+}
+
+void insertToEnd(struct node * head, int data)
+{
+    if (head == NULL)
+    {
+        insertToEmpty(data);
+    }
+    
+    struct node * new = (struct node *)malloc(sizeof(struct node *));
+    new->data = data;
+    new->next = head;
+
+    while (head->next != head)
+    {
+        head = head->next;
+    }
+
+    head->next = new;
+}
+
+void insertAfter(struct node * head, int data, int item)
+{
+    if (head == NULL)
+    {
+        insertToEmpty(data);
+    }
+
+    if (head->next == head)
+    {
+        insertToEnd(head, data);
+    }
+
+    struct node * new = (struct node *)malloc(sizeof(struct node *));
+    new->data = data;
+
+    while (head->data != item)
+    {
+        head = head->next;
+    }
+
+    new->next = head->next;
+    head->next = new;
+}
 
 
 int main()
