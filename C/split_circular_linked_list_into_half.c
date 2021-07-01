@@ -105,6 +105,39 @@ void insertAfter(struct node * head, int data, int item)
     head->next = new;
 }
 
+void delete(struct node * head, int data)
+{
+    if (head == NULL)
+    {
+        return;
+    }
+
+    if (head->next == head)
+    {
+        head = NULL;
+        return;
+    }
+
+    struct node * curr = head;
+    struct node * prev = (struct node *)malloc(sizeof(struct node *));
+
+    while (curr->data != data)
+    {
+        prev = curr;
+        curr = curr->next;
+    }
+
+    if (curr->next == head || curr == head)
+    {
+        prev->next = head;
+        free(curr);
+        return;
+    }
+
+    prev->next = curr->next;
+    free(curr);
+}
+
 
 int main()
 {   
