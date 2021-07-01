@@ -35,16 +35,24 @@ void showStack(int stack[])
     }
 }
 
+void binary(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    
+    while (n != 0)
+    {
+        push(stack, n%2);
+        n = n/2;
+    }
+}
+
 
 int main()
 {
-    push(stack, 1);
-    push(stack, 2);
-    push(stack, 3);
-    push(stack, 4);
-
-    pop(stack);
-
+    binary(0);
     showStack(stack);
 
     return 0;
