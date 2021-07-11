@@ -25,12 +25,6 @@ int heightOfTree(struct node * root)
     {
         return 0;
     }
-
-    if (root->left == NULL && root->right == NULL)
-    {
-        return 1;
-    }
-
     else 
     {
         if (heightOfTree(root->left) > heightOfTree(root->right))
