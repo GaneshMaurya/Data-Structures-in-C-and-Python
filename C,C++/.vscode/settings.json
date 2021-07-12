@@ -5,6 +5,7 @@
         "queue": "cpp",
         "xiosbase": "c",
         "xtree": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "map": "cpp"
     }
 }
