@@ -66,14 +66,14 @@ void printRight(struct node * root)
 
     if (root->right != NULL)
     {
-        cout<<root->data<<" ";
         printRight(root->right);
+        cout<<root->data<<" ";
     }
 
     else if (root->left != NULL)
     {
-        cout<<root->data<<" ";
         printRight(root->left);
+        cout<<root->data<<" ";       
     }
 }
 
