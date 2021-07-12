@@ -33,7 +33,6 @@ void topView(struct node * root)
     map<int, int> m;
 
     q.push(root);
-    m.insert(make_pair(root->height, root->data));
 
     while (!q.empty())
     {
