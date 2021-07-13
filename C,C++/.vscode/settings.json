@@ -6,6 +6,7 @@
         "xiosbase": "c",
         "xtree": "cpp",
         "utility": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "xstring": "cpp"
     }
 }
