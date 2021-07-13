@@ -4,7 +4,7 @@
 struct node 
 {
     int data;
-    struct node  * left;
+    struct node * left;
     struct node * right;
 };
 
@@ -90,6 +90,18 @@ void preorder(struct node * root)
     preorder(root->right);
 }
 
+void postorder(struct node * root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    printf("%d ", root->data);
+}
+
 
 int main()
 {
@@ -102,6 +114,8 @@ int main()
     inorder(root);
     printf("\n");
     preorder(root);
+    printf("\n");
+    postorder(root);
     
     return 0;
 }
