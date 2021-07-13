@@ -38,10 +38,9 @@ void bottomView(struct node * root)
     {
         struct node * temp = q.front();
         q.pop();
-        m.insert(make_pair(temp->height, temp->data));
         int h = temp->height;
 
-        if (m[h] == 0)
+        if (m.find(h) == m.end())
         {
             m.insert(make_pair(h, temp->data));
         }
