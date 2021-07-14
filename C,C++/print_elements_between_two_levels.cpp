@@ -79,7 +79,7 @@ int main()
 
     int min = 2;
     int max = 4;
-    printlevel(root, min, max);
+    printbetweenlevels(root, min, max);
     
     return 0;
 }
