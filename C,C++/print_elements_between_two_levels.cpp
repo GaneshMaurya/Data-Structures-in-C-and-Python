@@ -20,7 +20,7 @@ struct node * newNode(int data)
     return temp;
 }
 
-void printlevel(struct node * root, int min, int max)
+void printbetweenlevels(struct node * root, int min, int max)
 {
     if (root == NULL)
     {
