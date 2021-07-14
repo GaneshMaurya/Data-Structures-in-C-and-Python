@@ -9,6 +9,7 @@
         "map": "cpp",
         "xstring": "cpp",
         "xutility": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "stdio.h": "c"
     }
 }
