@@ -31,7 +31,6 @@ void getWidthOfLevel(struct node * root, int level)
     q.push(root);
 
     int l = 1;
-    int max = -1;
 
     while (true)
     {
@@ -41,6 +40,8 @@ void getWidthOfLevel(struct node * root, int level)
         {
             break;
         }
+
+        int max = -1;
 
         if (width > max)
         {
@@ -85,8 +86,9 @@ int main()
     root->left->right->left->left = newNode(10);
     root->left->right->right = newNode(11);
     root->right->right = newNode(9);
+    root->right->right->right = newNode(19);
 
-    int level = 3;
+    int level = 4;
     getWidthOfLevel(root, level);
     
     return 0;
