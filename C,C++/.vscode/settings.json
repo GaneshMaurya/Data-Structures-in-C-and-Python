@@ -10,6 +10,7 @@
         "xstring": "cpp",
         "xutility": "cpp",
         "ostream": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "vector": "cpp"
     }
 }
