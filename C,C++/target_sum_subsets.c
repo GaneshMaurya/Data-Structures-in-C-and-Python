@@ -6,13 +6,13 @@ int main()
 {
     int arr[] = {2, 3, 5, 6, 8, 10};
     int n = sizeof(arr)/sizeof(int);
-    int sum = 50;
+    int sum = 100;
 
     bool dp[n+1][sum+1];
 
-    for (int i=0; i<n; i++)
+    for (int i=0; i<=n; i++)
     {
-        for (int j=0; j<sum; j++)
+        for (int j=0; j<=sum; j++)
         {
             if (i == 0 && j == 0)
             {
@@ -28,7 +28,15 @@ int main()
             }
             else
             {
-                dp[i][j] = dp[i-1][j] || dp[i-1][j - arr[i]];
+                int val = arr[i-1];
+                if (j >= val)
+                {
+                    dp[i][j] = dp[i-1][j] || dp[i-1][j-val];
+                }
+                else
+                {
+                    dp[i][j] = dp[i-1][j];
+                }
             }
         }
     }
