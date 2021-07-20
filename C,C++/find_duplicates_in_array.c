@@ -12,6 +12,12 @@ int main()
 
     for (int i=0; i<n; i++)
     {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    for (int i=0; i<n; i++)
+    {
         if (arr[i]/n > 1)
         {
             printf("%d ", arr[i]%n);
