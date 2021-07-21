@@ -24,7 +24,7 @@ long long int gridTraveller(int m, int n)
 {
     char c1 = m + '0';
     char c2 = n + '0';
-    auto key = std::string(1, c1)+c2;
+    auto key = std::string(1, c1)+','+c2;
 
     if (memo.find(key) != memo.end())
     {
