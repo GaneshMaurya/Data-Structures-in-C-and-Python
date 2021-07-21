@@ -2,9 +2,9 @@
 #include <map>
 using namespace std;
 
-map<int, int> memo;
+map<int, long long int> memo;
 
-int fib(int n)
+long long int fib(int n)
 {
     if (memo.find(n) != memo.end())
     {
@@ -13,7 +13,6 @@ int fib(int n)
 
     if (n <= 2)
     {
-        memo[n] = 1;
         return 1;
     }
 
@@ -27,7 +26,7 @@ int main()
     cout<<fib(3)<<endl;
     cout<<fib(7)<<endl;
     cout<<fib(10)<<endl;
-    cout<<fib(30)<<endl;
+    cout<<fib(50)<<endl;
     
     return 0;
 }
