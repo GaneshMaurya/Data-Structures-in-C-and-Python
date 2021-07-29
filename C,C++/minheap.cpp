@@ -14,18 +14,6 @@ void swap(int *a, int *b)
     *b = temp;
 }
 
-int minimum(int a, int b)
-{
-    if (a < b)
-    {
-        return a;
-    }
-    else
-    {
-        return b;
-    }
-}
-
 int parent(int i)
 {
     return (i-1)/2;
