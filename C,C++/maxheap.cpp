@@ -1,29 +1,17 @@
-/* Min Heap Implementation */
+/* Max Heap */
 
 #include <bits/stdc++.h>
-#include <limits.h>
 using namespace std;
+#define SIZE 1000
 
-vector<int> minHeap;
-
+int maxHeap[SIZE];
+int heapSize = 0;
 
 void swap(int *a, int *b)
 {
     int temp = *a;
     *a = *b;
     *b = temp;
-}
-
-int minimum(int a, int b)
-{
-    if (a < b)
-    {
-        return a;
-    }
-    else
-    {
-        return b;
-    }
 }
 
 int parent(int i)
@@ -43,38 +31,39 @@ int rightChild(int i)
 
 void insertHeap(int data)
 {
-    minHeap.push_back(data);
-    int i = minHeap.size()-1;
+    maxHeap[heapSize] = data;
+    heapSize++;
+    int i = heapSize-1;
 
-    while (i != 0 && minHeap[parent(i)] > minHeap[i])
+    while (i != 0 && maxHeap[parent(i)] < maxHeap[i])
     {
-        swap(&minHeap[parent(i)], &minHeap[i]);
+        swap(&maxHeap[parent(i)], &maxHeap[i]);
         i = parent(i);
     }
 }
 
-int extractMin()
+int extractMax()
 {
-    if (minHeap.empty())
+    if (heapSize < 0)
     {
         return INT_MAX;
     }
-    if (minHeap.size() == 1)
+    if (heapSize == 1)
     {
-        int x = minHeap[0];
-        minHeap.pop_back();
+        int x = maxHeap[0];
+        heapSize--;
         return x;
     }
 
-    int root = minHeap[0];
-    minHeap[0] = minHeap[minHeap.size()-1];
-    minHeap.pop_back();
+    int root = maxHeap[0];
+    maxHeap[0] = maxHeap[heapSize-1];
+    heapSize--;
     int i = 0;
 
-    while (2*i+1 < minHeap.size())
+    while (2*i+1 < heapSize)
     {
         int child;
-        if (minHeap[leftChild(i)] < minHeap[rightChild(i)])
+        if (maxHeap[leftChild(i)] > maxHeap[rightChild(i)])
         {
             child = leftChild(i);
         }
@@ -83,9 +72,9 @@ int extractMin()
             child = rightChild(i);
         }
 
-        if (minHeap[i] > minHeap[child])
+        if (maxHeap[i] < maxHeap[child])
         {
-            swap(&minHeap[i], &minHeap[child]);
+            swap(&maxHeap[i], &maxHeap[child]);
             i = child;
         }
         else
@@ -99,15 +88,15 @@ int extractMin()
 
 void printHeap()
 {
-    if (minHeap.empty())
+    if (heapSize <= 0)
     {
         cout<<"Empty Heap"<<"\n";
         return;
     }
     
-    for (int i=0; i<minHeap.size(); i++)
+    for (int i=0; i<heapSize; i++)
     {
-        cout<<minHeap[i]<<" ";
+        cout<<maxHeap[i]<<" ";
     }
     cout<<"\n";
 }
@@ -122,28 +111,28 @@ int main()
     insertHeap(5);
     insertHeap(6);
     printHeap();
-    
-    int min = extractMin();
+
+    int min = extractMax();
     cout<<min<<"\n";
     printHeap();
     
-    min = extractMin();
+    min = extractMax();
     cout<<min<<"\n";
     printHeap();
     
-    min = extractMin();
+    min = extractMax();
     cout<<min<<"\n";
     printHeap();
     
-    min = extractMin();
+    min = extractMax();
     cout<<min<<"\n";
     printHeap();
 
-    min = extractMin();
+    min = extractMax();
     cout<<min<<"\n";
     printHeap();
 
-    min = extractMin();
+    min = extractMax();
     cout<<min<<"\n";
     printHeap();
     
