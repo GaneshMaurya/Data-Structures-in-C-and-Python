@@ -22,7 +22,7 @@ bool isNotRepeating(int num)
     return true;
 }
 
-int repeatingDigits(int l, int r)
+int notRepeatingDigits(int l, int r)
 {
     int count = 0;
 
@@ -45,7 +45,7 @@ int main()
     int l = 101;
     int r = 200;
 
-    cout<<repeatingDigits(l, r);
+    cout<<notRepeatingDigits(l, r);
     
     return 0;
 }
