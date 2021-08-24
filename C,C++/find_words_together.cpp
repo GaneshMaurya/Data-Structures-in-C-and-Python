@@ -7,46 +7,37 @@ int main()
     string arr[] = {"bite", "tail", "iron", "whip"};
     string attack = "aaaaironirontailbitewhipbiteaaaatailaaaairontailbitewhipbiteaaaatailaaaairontailbitewhip";
     int i = 0;
-    int j = 0;
     int k = 16;
     string temp;
 
     while (i < attack.length())
     {
-        if (j-i < k)
-        {
-            j++;
-        }
-        else if (j-i == k)
-        {
-            temp = attack.substr(i, 16);
-            int count = 0;
+        temp = attack.substr(i, k);
+        int count = 0;
 
-            while (count < n)
+        while (count < n)
+        {
+            for (int i=0; i<n; i++)
             {
-                for (int i=0; i<n; i++)
+                size_t found = temp.find(arr[i]);
+
+                if (found != string::npos)
                 {
-                    size_t found = temp.find(arr[i]);
-
-                    if (found != string::npos)
-                    {
-                        count++;
-                    }
-                    else
-                    {
-                        break;
-                    }
+                    count++;
                 }
-                break;
+                else
+                {
+                    break;
+                }
             }
-            
-            if (count == n)
-            {
-                break;
-            }
-            i++;
-            j++;
+            break;
         }
+        
+        if (count == n)
+        {
+            break;
+        }
+        i++;
     }
 
     cout<<i;
