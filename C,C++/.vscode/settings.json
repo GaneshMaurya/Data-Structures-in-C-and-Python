@@ -18,7 +18,8 @@
         "unordered_map": "cpp",
         "xhash": "cpp",
         "span": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "xlocale": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "cmake.configureOnOpen": true
