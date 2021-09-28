@@ -19,7 +19,8 @@
         "xhash": "cpp",
         "span": "cpp",
         "complex": "cpp",
-        "xlocale": "cpp"
+        "xlocale": "cpp",
+        "regex": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled",
     "cmake.configureOnOpen": true
