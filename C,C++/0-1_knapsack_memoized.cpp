@@ -10,7 +10,7 @@ int knapsack(int wt[], int val[], int W, int n)
         return 0;
     }
     
-    if (dp[n][W] != 0)
+    if (dp[n][W] != -1)
     {
         return dp[n][W];
     }
@@ -34,6 +34,7 @@ int main()
     int W = 10;
     int n = sizeof(wt)/sizeof(int);
 
+    memset(dp, -1, sizeof(dp));
     cout<<knapsack(wt, val, W, n);
     
     return 0;
